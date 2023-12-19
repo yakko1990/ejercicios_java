@@ -1,9 +1,13 @@
 1: Pedir 5 números, y mostrar al final si se ha introducido alguno negativo.
 (Pseudocódigo y en Java)
+
 2: Pedir números e indicar si es múltiplo de 3. El programa finaliza con -1
 (Pseudocódigo, ordinograma y en Java)
+
 3: Leer 5 números y mostrarlos en orden inverso al introducido.
+
 4: Realizar una aplicación que devuelva si una palabra es un palíndromo o no.
+
 5: Realiza una aplicación con la que puedas jugar con la máquina a pares o nones.
 • El número que escoja la máquina deberá ser aleatorio y evidentemente de estar
 entre el 1 y el 5 (dedos de una mano).
