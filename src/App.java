@@ -3,23 +3,20 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 
-public class App
-{
+public class App {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void main( String[] args )
-    {
+    public static void main(String[] args) {
 
-        GiveMeTheNegative();
-        GiveMeTheMultiple();
-        GiveMeTheInvertedVector();
-        GiveMeThePalindrome();
+        //GiveMeTheNegative();
+        //GiveMeTheMultiple();
+        //GiveMeTheInvertedVector();
+        //GiveMeThePalindrome();
         ParesoNones();
     }
 
 
-
-    public static int GiveMeTheNegative(){
+    public static int GiveMeTheNegative() {
         int[] numbers = new int[5];
         int count = 0;
 
@@ -29,8 +26,8 @@ public class App
         for (int i = 0; i < numbers.length; i++) {
             System.out.println("numero " + (i + 1));
             int num = scanner.nextInt();
-            if(num < 0){
-                numbers[i]= num;
+            if (num < 0) {
+                numbers[i] = num;
                 count++;
             }
 
@@ -63,34 +60,34 @@ public class App
 
     }
 
-    public static int[]GiveMeTheInvertedVector(){
+    public static int[] GiveMeTheInvertedVector() {
 
 
         System.out.println("Dime cuantos numeros quieres agregar al array:");
         int num = scanner.nextInt();
-        int []arraynum = new int[num];
-        int [] arrayinverso = new int[num];
+        int[] arraynum = new int[num];
+        int[] arrayinverso = new int[num];
 
         for (int i = 0; i < arraynum.length; i++) {
-            System.out.println("dime el numero " +  (i + 1));
+            System.out.println("dime el numero " + (i + 1));
             int numarray = scanner.nextInt();
-            arraynum[i]=numarray;
+            arraynum[i] = numarray;
 
         }
 
         for (int i = 0; i < arraynum.length; i++) {
 
-            arrayinverso[arraynum.length-1-i] = arraynum[i];
+            arrayinverso[arraynum.length - 1 - i] = arraynum[i];
 
         }
 
-        System.out.println("Asi queda el array que has construido invertido"+ Arrays.toString(arrayinverso));
+        System.out.println("Asi queda el array que has construido invertido" + Arrays.toString(arrayinverso));
 
-        return arrayinverso ;
+        return arrayinverso;
     }
 
 
-    public static void GiveMeThePalindrome(){
+    public static void GiveMeThePalindrome() {
 
         System.out.println("Dime una palabra:");
         String word = scanner.nextLine();
@@ -114,37 +111,59 @@ public class App
         }
     }
 
-    public static void ParesoNones(){
+    public static void ParesoNones() {
+
+        int count = 0;
+        int countmachine = 0;
+        String answergame = "S";
 
 
-        int numrandom = (int) (Math.random() * 5);
+        while (answergame.equalsIgnoreCase("S")) {
+            for (int i = 0; i < 3; i++) {
+                System.out.println("¿Eliges pares o nones:");
+                String answer = scanner.nextLine();
 
-        for (int i = 0; i < 3; i++) {
-            System.out.println("¿Eliges pares o nones:");
-            String answer = scanner.nextLine();
+                System.out.println("Dime el número:");
+                int num = scanner.nextInt();
+                scanner.nextLine();
 
-            System.out.println("Dime el número:");
-            int num = scanner.nextInt();
-            scanner.nextLine();
+                int numrandom = (int) (Math.random() * 5);
 
-            System.out.println(numrandom);
+                System.out.println(numrandom);
+                int newnumber = (num + numrandom);
 
-            if ((answer.equals("pares") && (numrandom + num) % 2 == 0) ||
-                    (answer.equals("nones") && (numrandom + num) % 2 != 0)) {
-                System.out.println("Ganaste");
-            } else {
-                System.out.println("Perdiste");
+                if ((answer.equals("pares") && (newnumber) % 2 == 0) ||
+                        (answer.equals("nones") && (newnumber) % 2 != 0)) {
+                    System.out.println("¡" + answer + "!" + "Ha salido el " + newnumber + " has ganado esta ronda.");
+                    count++;}
+
+                    if (count >= 2) {
+                        System.out.println("¡Has ganado la partida!");
+                        break;
+                    }
+                else if ((answer.equals("pares") && (newnumber) % 2 != 0) ||
+                        (answer.equals("nones") && (newnumber) % 2 == 0)) {
+                    System.out.println("¡" + answer + "!" + "Ha salido el " + newnumber + " La máquina ha ganado esta ronda.");
+                    countmachine++;}
+
+                    if (countmachine >= 2) {
+                        System.out.println("¡Máquina ha ganado!");
+                        break;
+                    }
+                }
+
+                System.out.println("¿Quieres jugar otra partida? (S/N)");
+                answergame = scanner.nextLine();
+
             }
+
         }
+
     }
 
 
 
 
-
-
-
-}
 
 
 
